@@ -1,6 +1,6 @@
 {
   "name": "astro-html-beautifier",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Beautify html files on astro final bundle with js-beautify",
   "scripts": {},
   "type": "module",
