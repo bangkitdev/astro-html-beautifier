@@ -1,0 +1,46 @@
+{
+  "name": "astro-html-beautifier",
+  "version": "1.0.0",
+  "description": "Beautify html files on astro final bundle with js-beautify",
+  "scripts": {},
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bangkitdev/astro-html-beautifier.git"
+  },
+  "keywords": [
+    "astro",
+    "astro-component",
+    "withastro",
+    "astro-integration",
+    "renderer",
+    "optimization",
+    "beautify",
+    "html"
+  ],
+  "author": "bangkitdev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bangkitdev/astro-html-beautifier/issues"
+  },
+  "homepage": "https://github.com/bangkitdev/astro-html-beautifier#readme",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.mjs",
+  "exports": {
+    ".": "./dist/index.mjs"
+  },
+  "dependencies": {
+    "js-beautify": "^1.14.6"
+  },
+  "devDependencies": {
+    "astro": "^1.5.2",
+    "@types/js-beautify": "^1.13.3",
+    "@types/node": "^18.11.3",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "url": "^0.11.0"
+  }
+}
