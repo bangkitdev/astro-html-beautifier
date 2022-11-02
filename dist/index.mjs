@@ -63,7 +63,7 @@ const htmlFormatter = (filePath, options) => {
 
 export default function (options = { ...defaultConfig }) {
     return {
-        name: "astro-test",
+        name: "astro-html-beautifier",
         hooks: {
             "astro:build:done": async ({ dir }) => {
                 const allFiles = getAllFiles(dir.pathname);
