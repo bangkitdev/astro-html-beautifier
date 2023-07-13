@@ -33,12 +33,13 @@
     ".": "./dist/index.mjs"
   },
   "dependencies": {
+    "blob": "^0.1.0",
     "js-beautify": "^1.14.6"
   },
   "devDependencies": {
-    "astro": "^1.5.2",
     "@types/js-beautify": "^1.13.3",
     "@types/node": "^18.11.3",
+    "astro": "^1.5.2",
     "fs": "^0.0.1-security",
     "path": "^0.12.7",
     "url": "^0.11.0"
