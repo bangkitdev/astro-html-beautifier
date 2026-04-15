@@ -2,7 +2,6 @@ import path from "path";
 import fs from "fs";
 import chalk from "chalk";
 import beautify from "js-beautify";
-import { globSync } from 'glob';
 
 const defaultConfig = {
     indent_size: 4,
@@ -22,6 +21,19 @@ const defaultConfig = {
     comma_first: false,
     e4x: false,
     indent_empty_lines: false,
+};
+
+const getAllFiles = function (dirPath, arrayOfFiles = []) {
+    const files = fs.readdirSync(dirPath);
+    files.forEach(function (file) {
+        if (fs.statSync(dirPath + "/" + file).isDirectory()) {
+            arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles);
+        } else {
+            arrayOfFiles.push(path.join(dirPath, "/", file));
+        }
+    });
+
+    return arrayOfFiles;
 };
 
 const htmlFormatter = (filePath, options) => {
@@ -49,28 +61,19 @@ const htmlFormatter = (filePath, options) => {
     }
 };
 
-function htmlBeautify (options = { ...defaultConfig }) {
+export default function (options = { ...defaultConfig }) {
     return {
         name: "astro-html-beautifier",
         hooks: {
             "astro:build:done": async ({ dir }) => {
-                globSync(`${dir.pathname}**/*.html`).forEach((filePath) => {
-                    htmlFormatter(filePath, options);
+                const allFiles = getAllFiles(dir.pathname);
+                allFiles.forEach((filePath) => {
+                    const ext = path.extname(filePath);
+                    if (ext === ".html") {
+                        htmlFormatter(filePath, options);
+                    }
                 });
                 console.log("");
-            },
-        },
-    };
-}
-
-export default function () {
-    return {
-        name: 'astro-html-beautifier',
-        hooks: {
-            'astro:config:setup': ({ updateConfig }) => {
-                updateConfig({
-                    integrations: [htmlBeautify()],
-                });
             },
         },
     };
