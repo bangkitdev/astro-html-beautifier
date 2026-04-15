@@ -30,7 +30,7 @@ export default {
 
 > **Note**
 >
-> if you leave blank the options, it will be override by default options
+> if you leave the options blank, they will be overriden by default options
 
 ### Default Options
 
@@ -59,7 +59,7 @@ const defaultConfig = {
 
 ## Usage
 
-This integration automatically format html files under the `/dist` folder by default, or the `outDir` directory in the `astro.config.mjs`.
+This integration automatically formats html files under the `/dist` folder by default, or the `outDir` directory in the `astro.config.mjs`.
 
 ## Configuration
 
